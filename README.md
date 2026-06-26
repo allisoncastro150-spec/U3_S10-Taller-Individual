@@ -9,11 +9,11 @@ El modelo toma como base estructural el código de referencia de `simulacion_int
 ## Parámetros Operativos del Sistema
 
 La simulación modela una infraestructura con los siguientes límites estrictos:
-*   **Tasa de Llegadas ($\lambda$):** 30 peticiones de usuarios por minuto.
-*   **Tasa de Servicio ($\mu$):** 10 imágenes/peticiones procesadas por minuto por cada nodo GPU.
-*   **Servidores ($c$):** 4 Nodos GPU dedicados.
+*   **Tasa de Llegadas :** 30 peticiones de usuarios por minuto.
+*   **Tasa de Servicio :** 10 imágenes/peticiones procesadas por minuto por cada nodo GPU.
+*   **Servidores :** 4 Nodos GPU dedicados.
 *   **Stock Inicial:** 500 créditos de nube.
-*   **Cantidad de Recarga ):** 400 créditos.
+*   **Cantidad de Recarga :** 400 créditos.
 *   **Lead Time:** Media de 2.0 minutos con distribución estocástica.
 *   **Tiempo de Simulación:** Escenario de 60 minutos continuos evaluado a través de **30 réplicas** independientes.
 
