@@ -31,7 +31,7 @@ Observamos que el hardware está operando de forma holgada e idónea ,75% de car
 
 **El origen de las fallas no es técnico, sino financiero:**
 Las predicciones fallidas  ocurren por un fenómeno de quiebre de stock  debido al desfase del **Lead Time**. 
-*   A una tasa de $\lambda = 30$ peticiones/minuto, y con un retraso de recarga promedio de $2$ minutos, la **Demanda Esperada durante el Lead Time ** es de $30 \times 2 = 60$ créditos.
+*   A una tasa de $\lambda = 30$ peticiones/minuto, y con un retraso de recarga promedio de $2$ minutos, la Demanda Esperada durante el Lead Time es de $30 \times 2 = 60$ créditos.
 *   Dado que el punto de reorden inicial ($s$) estaba configurado en **50 créditos**, el sistema enviaba la orden de compra muy tarde. Para cuando el saldo llegaba a 50, la API requería procesar en promedio 60 peticiones antes de recibir la recarga de la nube, dejando el balance en 0 y provocando la denegación de servicios a los usuarios.
 
 ---
@@ -46,7 +46,7 @@ Tras someter el sistema a simulación y experimentación estocástica a lo largo
 
 ---
 
-## 📊 Comparativa de Resultados Estadísticos (IC 95%)
+## Comparativa de Resultados Estadísticos (IC 95%)
 
 | Métrica Operacional | Escenario Inicial ($s = 50$) | Escenario Optimizado ($s = 95$) |
 | :--- | :---: | :---: |
@@ -57,7 +57,7 @@ Tras someter el sistema a simulación y experimentación estocástica a lo largo
 
 ---
 
-## 🛠️ Requisitos e Instalación
+## Requisitos e Instalación
 
 Para ejecutar este simulador de manera local o en un entorno virtual, asegúrate de tener instalado Python 3.8+ y las siguientes dependencias:
 
