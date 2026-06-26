@@ -1,6 +1,6 @@
 #  Simulación de Eventos Discretos (DES)
 
-Este repositorio contiene un modelo de Simulación de Eventos Discretos desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas (Kendall: $M/M/c$) y políticas de inventario continuo.
+Este repositorio contiene un modelo de Simulación de Eventos Discretos desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas y políticas de inventario continuo.
 
 El modelo toma como base estructural el código de referencia de `simulacion_integral_colab.py` visto en clase y lo adapta por completo los parámetros operativos de un pipeline de despliegue tecnológico.
 
