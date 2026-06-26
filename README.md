@@ -1,12 +1,12 @@
-# API Machine Learning - Simulación de Eventos Discretos (DES)
+#  Simulación de Eventos Discretos (DES)
 
-Este repositorio contiene un modelo de Simulación de Eventos Discretos (DES) desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero (créditos de nube) de una API de Machine Learning en producción bajo la Teoría de Colas (Kendall: $M/M/c$) y políticas de inventario continuo ($s, Q$).
+Este repositorio contiene un modelo de Simulación de Eventos Discretos (DES) desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas (Kendall: $M/M/c$) y políticas de inventario continuo.
 
 El modelo toma como base estructural el código de referencia de `simulacion_integral_colab.py` visto en clase y lo adapta por completo a la jerga y parámetros operativos de un pipeline de despliegue tecnológico.
 
 ---
 
-## 🚀 Parámetros Operativos del Sistema
+## Parámetros Operativos del Sistema
 
 La simulación modela una infraestructura con los siguientes límites estrictos:
 *   **Tasa de Llegadas ($\lambda$):** 30 peticiones de usuarios por minuto.
@@ -19,7 +19,7 @@ La simulación modela una infraestructura con los siguientes límites estrictos:
 
 ---
 
-## 📈 Análisis del Comportamiento del Sistema
+##  Análisis del Comportamiento del Sistema
 
 ### 1. ¿Por qué el sistema arroja predicciones fallidas a pesar de tener una utilización de hardware estable?
 
@@ -30,7 +30,7 @@ $$\rho = \frac{\lambda}{c \cdot \mu} = \frac{30}{4 \cdot 10} = 75.0\%$$
 Observamos que el hardware está operando de forma holgada e idónea (75% de carga), lo que significa que las GPUs tienen la capacidad computacional suficiente para procesar la cola de peticiones sin saturarse ni generar demoras infinitas.
 
 **El origen de las fallas no es técnico, sino financiero:**
-Las predicciones fallidas (*Out of Credits*) ocurren por un fenómeno de quiebre de stock (*stockout*) debido al desfase del **Lead Time**. 
+Las predicciones fallidas  ocurren por un fenómeno de quiebre de stock  debido al desfase del **Lead Time**. 
 *   A una tasa de $\lambda = 30$ peticiones/minuto, y con un retraso de recarga promedio de $2$ minutos, la **Demanda Esperada durante el Lead Time ($D_L$)** es de $30 \times 2 = 60$ créditos.
 *   Dado que el punto de reorden inicial ($s$) estaba configurado en **50 créditos**, el sistema enviaba la orden de compra muy tarde. Para cuando el saldo llegaba a 50, la API requería procesar en promedio 60 peticiones antes de recibir la recarga de la nube, dejando el balance en 0 y provocando la denegación de servicios a los usuarios.
 
