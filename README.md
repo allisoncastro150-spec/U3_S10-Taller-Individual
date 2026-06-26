@@ -1,3 +1,6 @@
+# ALLISON CASTRO TAPIA
+# Modelamiento y Simulación
+
 #  Simulación de Eventos Discretos (DES)
 
 Este repositorio contiene un modelo de Simulación de Eventos Discretos desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas y políticas de inventario continuo.
