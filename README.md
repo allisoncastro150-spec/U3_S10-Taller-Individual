@@ -1,8 +1,8 @@
 #  Simulación de Eventos Discretos (DES)
 
-Este repositorio contiene un modelo de Simulación de Eventos Discretos (DES) desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas (Kendall: $M/M/c$) y políticas de inventario continuo.
+Este repositorio contiene un modelo de Simulación de Eventos Discretos desarrollado en Python utilizando la librería `SimPy`. El objetivo del proyecto es evaluar la latencia de procesamiento, la gestión de recursos de infraestructura y el aprovisionamiento financiero de una API de Machine Learning en producción bajo la Teoría de Colas (Kendall: $M/M/c$) y políticas de inventario continuo.
 
-El modelo toma como base estructural el código de referencia de `simulacion_integral_colab.py` visto en clase y lo adapta por completo a la jerga y parámetros operativos de un pipeline de despliegue tecnológico.
+El modelo toma como base estructural el código de referencia de `simulacion_integral_colab.py` visto en clase y lo adapta por completo los parámetros operativos de un pipeline de despliegue tecnológico.
 
 ---
 
@@ -12,9 +12,9 @@ La simulación modela una infraestructura con los siguientes límites estrictos:
 *   **Tasa de Llegadas ($\lambda$):** 30 peticiones de usuarios por minuto.
 *   **Tasa de Servicio ($\mu$):** 10 imágenes/peticiones procesadas por minuto por cada nodo GPU.
 *   **Servidores ($c$):** 4 Nodos GPU dedicados.
-*   **Stock Inicial:** 500 créditos de nube (Tokens).
-*   **Cantidad de Recarga ($Q$):** 400 créditos.
-*   **Lead Time (Retraso de Recarga):** Media de 2.0 minutos con distribución estocástica.
+*   **Stock Inicial:** 500 créditos de nube.
+*   **Cantidad de Recarga ):** 400 créditos.
+*   **Lead Time:** Media de 2.0 minutos con distribución estocástica.
 *   **Tiempo de Simulación:** Escenario de 60 minutos continuos evaluado a través de **30 réplicas** independientes.
 
 ---
@@ -27,11 +27,11 @@ Al calcular la utilización teórica de los Nodos GPU utilizando la fórmula de 
 
 $$\rho = \frac{\lambda}{c \cdot \mu} = \frac{30}{4 \cdot 10} = 75.0\%$$
 
-Observamos que el hardware está operando de forma holgada e idónea (75% de carga), lo que significa que las GPUs tienen la capacidad computacional suficiente para procesar la cola de peticiones sin saturarse ni generar demoras infinitas.
+Observamos que el hardware está operando de forma holgada e idónea ,75% de carga, lo que significa que las GPUs tienen la capacidad computacional suficiente para procesar la cola de peticiones sin saturarse ni generar demoras infinitas.
 
 **El origen de las fallas no es técnico, sino financiero:**
 Las predicciones fallidas  ocurren por un fenómeno de quiebre de stock  debido al desfase del **Lead Time**. 
-*   A una tasa de $\lambda = 30$ peticiones/minuto, y con un retraso de recarga promedio de $2$ minutos, la **Demanda Esperada durante el Lead Time ($D_L$)** es de $30 \times 2 = 60$ créditos.
+*   A una tasa de $\lambda = 30$ peticiones/minuto, y con un retraso de recarga promedio de $2$ minutos, la **Demanda Esperada durante el Lead Time ** es de $30 \times 2 = 60$ créditos.
 *   Dado que el punto de reorden inicial ($s$) estaba configurado en **50 créditos**, el sistema enviaba la orden de compra muy tarde. Para cuando el saldo llegaba a 50, la API requería procesar en promedio 60 peticiones antes de recibir la recarga de la nube, dejando el balance en 0 y provocando la denegación de servicios a los usuarios.
 
 ---
